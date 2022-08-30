@@ -1,6 +1,7 @@
 const OPTIONS = ['rock', 'paper', 'scissors']
 let playerScore = 0
 let computerScore = 0
+let isGameOver = false
 
 function getComputerChoice() {
     const randomIndex =  Math.floor(Math.random() * OPTIONS.length)
@@ -121,25 +122,38 @@ function updateScore(isPlayerWinner) {
     }
 
     scoreText.textContent = `${playerScore} (You) - ${computerScore} (Computer)`
+
+    if (playerScore === 5) {
+        updateResultText('You win!')
+        isGameOver = true
+    }
+    else if (computerScore === 5) {
+        updateResultText('You lose!')
+        isGameOver = true
+    }
+}
+
+function handleUpdates(isPlayerWinner, resultString) {
+    if (!isGameOver) {
+        updateResultText(resultString)
+        updateScore(isPlayerWinner)
+    }
 }
 
 let rockButton = document.querySelector('button.rock')
 rockButton.addEventListener('click', e => {
     const [isPlayerWinner, resultString] = playRound('rock', getComputerChoice())
-    updateResultText(resultString)
-    updateScore(isPlayerWinner)
+    handleUpdates(isPlayerWinner, resultString)
 })
 
 let paperButton = document.querySelector('button.paper')
 paperButton.addEventListener('click', e => {
     const [isPlayerWinner, resultString] = playRound('paper', getComputerChoice())
-    updateResultText(resultString)
-    updateScore(isPlayerWinner)
+    handleUpdates(isPlayerWinner, resultString)
 })
 
 let scissorsButton = document.querySelector('button.scissors')
 scissorsButton.addEventListener('click', e => {
     const [isPlayerWinner, resultString] = playRound('scissors', getComputerChoice())
-    updateResultText(resultString)
-    updateScore(isPlayerWinner)
+    handleUpdates(isPlayerWinner, resultString)
 })
