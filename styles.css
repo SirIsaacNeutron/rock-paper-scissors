@@ -22,6 +22,7 @@ a {
 
 .buttons {
     margin-top: 50px;
+    padding: 30px;
 
     display: flex;
 
@@ -33,9 +34,33 @@ a {
     height: 200px;
 }
 
+.buttons button {
+    background-color: #303030;
+    padding: 20px;
+
+    border: none;
+}
+
+.buttons button:hover {
+    background-color: #4e4e4e;
+}
+
+p {
+    margin: 0;
+}
+
 .game-info {
+    margin: 20px auto 0px auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+
+    font-size: 2rem;
+
+    align-items: center;
+}
+
+.game-info p {
+    margin: 5px;
 }
 
 footer {
