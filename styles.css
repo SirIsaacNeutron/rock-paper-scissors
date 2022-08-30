@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+    background-color: #181818;
+}
+
+.title {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: inherit;
+}
+
+.buttons > img {
+    width: 200px;
+    height: 200px;
+}
+
+footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    padding: 40px;
+    background-color: #262626;
+}
