@@ -71,41 +71,6 @@ function getPlayerSelection() {
     return playerSelection.toLowerCase()
 }
 
-function game() {
-    let playerScore = 0
-    let computerScore = 0
-    for (let i = 0; i < 5; ++i) {
-        let playerSelection = getPlayerSelection()
-        let computerSelection = getComputerChoice()
-
-        if (playerSelection === computerSelection) {
-            console.log('Tie! You have both chosen ' + playerSelection + '!')
-        }
-        else {
-            const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
-            if (isPlayerWinner) {
-                ++playerScore
-            }
-            else {
-                ++computerScore
-            }
-            console.log(resultString)
-        }
-        console.log(`Total score: Player ${playerScore}; Computer ${computerScore}`)
-        console.log()
-    }
-
-    if (playerScore > computerScore) {
-        console.log('You win!')
-    }
-    else if (computerScore > playerScore) {
-        console.log('You lose!')
-    }
-    else {
-        console.log("It's a draw!")
-    }
-}
-
 function updateResultText(resultString) {
     let resultText = document.querySelector('p.result-text')
     resultText.textContent = resultString
@@ -142,18 +107,42 @@ function handleUpdates(isPlayerWinner, resultString) {
 
 let rockButton = document.querySelector('button.rock')
 rockButton.addEventListener('click', e => {
-    const [isPlayerWinner, resultString] = playRound('rock', getComputerChoice())
-    handleUpdates(isPlayerWinner, resultString)
+    const playerSelection = 'rock'
+    const computerSelection = getComputerChoice()
+    const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
+
+    if (playerSelection === computerSelection) {
+        updateResultText(`It's a draw! You both chose ${playerSelection}!`)
+    }
+    else {
+        handleUpdates(isPlayerWinner, resultString)
+    }
 })
 
 let paperButton = document.querySelector('button.paper')
 paperButton.addEventListener('click', e => {
-    const [isPlayerWinner, resultString] = playRound('paper', getComputerChoice())
-    handleUpdates(isPlayerWinner, resultString)
+    const playerSelection = 'paper'
+    const computerSelection = getComputerChoice()
+    const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
+
+    if (playerSelection === computerSelection) {
+        updateResultText(`It's a draw! You both chose ${playerSelection}!`)
+    }
+    else {
+        handleUpdates(isPlayerWinner, resultString)
+    }
 })
 
 let scissorsButton = document.querySelector('button.scissors')
 scissorsButton.addEventListener('click', e => {
-    const [isPlayerWinner, resultString] = playRound('scissors', getComputerChoice())
-    handleUpdates(isPlayerWinner, resultString)
+    const playerSelection = 'scissors'
+    const computerSelection = getComputerChoice()
+    const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
+
+    if (playerSelection === computerSelection) {
+        updateResultText(`It's a draw! You both chose ${playerSelection}!`)
+    }
+    else {
+        handleUpdates(isPlayerWinner, resultString)
+    }
 })
