@@ -107,6 +107,8 @@ function handleUpdates(isPlayerWinner, resultString) {
 
 let rockButton = document.querySelector('button.rock')
 rockButton.addEventListener('click', e => {
+    if (isGameOver) { return }
+    
     const playerSelection = 'rock'
     const computerSelection = getComputerChoice()
     const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
@@ -121,6 +123,8 @@ rockButton.addEventListener('click', e => {
 
 let paperButton = document.querySelector('button.paper')
 paperButton.addEventListener('click', e => {
+    if (isGameOver) { return }
+
     const playerSelection = 'paper'
     const computerSelection = getComputerChoice()
     const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
@@ -135,6 +139,8 @@ paperButton.addEventListener('click', e => {
 
 let scissorsButton = document.querySelector('button.scissors')
 scissorsButton.addEventListener('click', e => {
+    if (isGameOver) { return }
+
     const playerSelection = 'scissors'
     const computerSelection = getComputerChoice()
     const [isPlayerWinner, resultString] = playRound(playerSelection, computerSelection)
